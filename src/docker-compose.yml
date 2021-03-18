@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+    www:
+        container_name: "sgbd"
+        build:
+            context: .
+            dockerfile: php.dockerfile
+        ports:
+            - "80:80"
+        volumes:
+            - ./public_html:/var/www/html
+networks:
+  myapp:
+    driver: bridge

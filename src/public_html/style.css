@@ -1,0 +1,26 @@
+body, html
+{
+    margin: 0 auto; 
+    display: block; 
+    width: auto; 
+    font-family: Montserrat, Raleway, sans-serif; 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    background-attachment: fixed; 
+    background-size: cover; 
+}
+i
+{
+    font-size: 40px;
+}
+a:link
+{
+    text-decoration: none;
+}
+/* Inicio Login */
+
+/* Inicio Nav */
+
+/* Inicio Admin */
+
+/* Inicio Footer */
