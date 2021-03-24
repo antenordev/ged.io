@@ -1,0 +1,19 @@
+{
+    "name": "antenor/src",
+    "description": "Interface de Sistema Gerenciador de banco de Dados",
+    "authors": [
+        {
+            "name": "Antenor Pires",
+            "email": "antenorpires.6@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\" : "App"
+        },
+        "files": [
+            "App/config.php"
+        ]
+    },
+    "require": {}
+}
