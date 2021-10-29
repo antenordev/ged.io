@@ -9,6 +9,18 @@ services:
             - "80:80"
         volumes:
             - ./public_html:/var/www/html
+        depends_on: 
+            - dbase
+    dbase:
+        image: mysql:5.7
+        volumes:
+            - ./db_data:/var/lib/mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: '1234'
+            MYSQL_DATABASE: app_wp
+            MYSQL_USER: dev
+            MYSQL_PASSWORD: development
 networks:
-  myapp:
-    driver: bridge
+    myapp:
+        driver: bridge
