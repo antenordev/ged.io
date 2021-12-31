@@ -1,26 +1,30 @@
 version: "3.3"
 services:
-    www:
-        container_name: "sgbd"
-        build:
-            context: .
-            dockerfile: php.dockerfile
-        ports:
-            - "80:80"
-        volumes:
-            - ./public_html:/var/www/html
-        depends_on: 
-            - dbase
-    dbase:
-        image: mysql:5.7
-        volumes:
-            - ./db_data:/var/lib/mysql
-        restart: always
-        environment:
-            MYSQL_ROOT_PASSWORD: '1234'
-            MYSQL_DATABASE: app_wp
-            MYSQL_USER: dev
-            MYSQL_PASSWORD: development
+  app:
+    container_name: "sgbd"
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    ports:
+      - "${APP_EXTERNAL_PORT}:${APP_INTERNAL_PORT}"
+    volumes:
+      - .:/var/www/html
+    networks:
+      - app
+  db:
+    container_name: "dbase"
+    image: mysql:5.7
+    volumes:
+      - ./db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - app
+
 networks:
-    myapp:
-        driver: bridge
+  app:
+    driver: bridge
