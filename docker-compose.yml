@@ -11,21 +11,6 @@ services:
       - .:/var/www/html
     networks:
       - app
-  db:
-    container_name: "dbase"
-    build:
-      context: .
-      dockerfile: mysql.dockerfile
-    volumes:
-      - ./db_data:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-    networks:
-      - app
 
 networks:
   app:
