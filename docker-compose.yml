@@ -6,14 +6,16 @@ services:
       context: .
       dockerfile: php.dockerfile
     ports:
-      - "${APP_EXTERNAL_PORT}:${APP_INTERNAL_PORT}"
+      - ${APP_EXTERNAL_PORT}:${APP_INTERNAL_PORT}
     volumes:
       - .:/var/www/html
     networks:
       - app
   db:
     container_name: "dbase"
-    image: mysql:5.7
+    build:
+      context: .
+      dockerfile: mysql.dockerfile
     volumes:
       - ./db_data:/var/lib/mysql
     restart: always
