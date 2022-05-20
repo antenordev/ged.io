@@ -1,0 +1,20 @@
+body, html
+{
+    margin: 0 auto;
+    display: block;
+    width: auto;
+    font-family: Montserrat, Raleway, sans-serif;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    color:#fff;
+}
+.crud_app{ text-transform:uppercase; height: 100vh;}
+.crud_app select{ text-transform:uppercase; }
+.crud_app button{ background-color:transparent; border:none; }
+.crud_app .online{ font-size:13px; color:#00EE00; }
+
+.crud_app .borderVH {height: 85vh; border-radius: 5px}
+
+.color-white { color:#fff; }
